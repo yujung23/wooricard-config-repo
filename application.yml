@@ -2,3 +2,8 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
+    # 서버 목록을 유레카로부터 갱신하는 주기 
+    registry-fetch-interval-seconds: 5
+  instance:
+    # 서비스 이름 대신 IP 주소로 등록
+    prefer-ip-address: true
