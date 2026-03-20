@@ -1,0 +1,27 @@
+server:
+  port: 8080
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        # 1. POS 서비스 라우팅 (결제 승인 요청 등)
+        - id: pos-service
+          uri: lb://pay-pos-service
+          predicates:
+            - Path=/api/v1/approval/**
+
+        # 2. VAN 서비스 라우팅 (VAN 전용 API 호출 시)
+        - id: van-service
+          uri: lb://pay-van-gateway
+          predicates:
+            - Path=/api/v1/van/**
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
