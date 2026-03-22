@@ -11,11 +11,3 @@ spring:
           uri: lb://pay-pos-service
           predicates:
             - Path=/api/v1/approval/**
-eureka:
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-    service-url:
-      defaultZone: http://localhost:8761/eureka/
-  instance:
-    prefer-ip-address: true
