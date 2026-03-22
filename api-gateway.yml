@@ -7,7 +7,8 @@ spring:
       routes:
         # 1. POS 서비스 라우팅 (결제 승인 요청 등)
         - id: pos-service
-          uri: lb://pay-pos-service
+          # uri: lb://pay-pos-service
+          uri: http://localhost:8081
           predicates:
             - Path=/api/v1/approval/**
 
