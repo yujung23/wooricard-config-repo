@@ -1,12 +1,2 @@
 server:
   port: 8082
-
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka/
-    registry-fetch-interval-seconds: 5
-  instance:
-    prefer-ip-address: true
-
-# VAN 서비스만의 고유 설정(예: 카드사 API 키 등)이 생기면 여기에 추가하면 됩니다.
