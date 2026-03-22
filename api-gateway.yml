@@ -1,7 +1,8 @@
 server:
   port: 8080
-
 spring:
+  application:
+    name: api-gateway
   cloud:
     gateway:
       routes:
@@ -10,7 +11,6 @@ spring:
           uri: lb://pay-pos-service
           predicates:
             - Path=/api/v1/approval/**
-
 eureka:
   client:
     register-with-eureka: true
